@@ -7,82 +7,82 @@
 
 @layer base {
   :root {
-    --background: 0 0% 98%;
-    --foreground: 20 14.3% 4.1%;
+    --background: 0 0% 5%;
+    --foreground: 0 0% 95%;
     
-    --card: 0 0% 100%;
-    --card-foreground: 20 14.3% 4.1%;
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 95%;
     
-    --popover: 0 0% 100%;
-    --popover-foreground: 20 14.3% 4.1%;
+    --popover: 0 0% 7%;
+    --popover-foreground: 0 0% 95%;
     
-    --primary: 40 100% 60%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 0 0% 0%;
+    --primary-foreground: 0 0% 100%;
     
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 0 0% 9%;
+    --secondary-foreground: 0 0% 95%;
     
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 70%;
     
     --accent: 40 80% 60%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent-foreground: 0 0% 5%;
     
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 98%;
     
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
     --ring: 40 100% 60%;
     
     --radius: 0.75rem;
 
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 20 14.3% 4.1%;
+    --sidebar-background: 0 0% 5%;
+    --sidebar-foreground: 0 0% 95%;
     --sidebar-primary: 40 100% 60%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 40 80% 97%;
-    --sidebar-accent-foreground: 20 14.3% 4.1%;
-    --sidebar-border: 40 30% 92%;
+    --sidebar-primary-foreground: 0 0% 5%;
+    --sidebar-accent: 0 0% 10%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 0 0% 15%;
     --sidebar-ring: 40 100% 60%;
   }
 
-  .dark {
-    --background: 20 14.3% 4.1%;
-    --foreground: 0 0% 98%;
+  .light {
+    --background: 0 0% 98%;
+    --foreground: 0 0% 5%;
     
-    --card: 20 10% 7%;
-    --card-foreground: 0 0% 98%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 5%;
     
-    --popover: 20 10% 7%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 5%;
     
-    --primary: 40 100% 60%;
-    --primary-foreground: 20 14.3% 4.1%;
+    --primary: 0 0% 5%;
+    --primary-foreground: 0 0% 98%;
     
-    --secondary: 20 5% 12%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 5%;
     
-    --muted: 20 5% 12%;
-    --muted-foreground: 20 10% 70%;
+    --muted: 0 0% 92%;
+    --muted-foreground: 0 0% 45%;
     
     --accent: 40 80% 60%;
-    --accent-foreground: 20 14.3% 4.1%;
+    --accent-foreground: 0 0% 5%;
     
-    --destructive: 0 62.8% 30.6%;
+    --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
     
-    --border: 20 5% 18%;
-    --input: 20 5% 18%;
+    --border: 0 0% 85%;
+    --input: 0 0% 85%;
     --ring: 40 100% 60%;
 
-    --sidebar-background: 20 14.3% 4.1%;
-    --sidebar-foreground: 0 0% 98%;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 0 0% 5%;
     --sidebar-primary: 40 100% 60%;
-    --sidebar-primary-foreground: 20 14.3% 4.1%;
-    --sidebar-accent: 20 5% 12%;
-    --sidebar-accent-foreground: 0 0% 98%;
-    --sidebar-border: 20 5% 18%;
+    --sidebar-primary-foreground: 0 0% 5%;
+    --sidebar-accent: 0 0% 92%;
+    --sidebar-accent-foreground: 0 0% 5%;
+    --sidebar-border: 0 0% 85%;
     --sidebar-ring: 40 100% 60%;
   }
 }
@@ -112,15 +112,30 @@
   }
   
   .text-gold-gradient {
-    @apply bg-gradient-to-r from-gold-400 via-gold-500 to-gold-600 bg-clip-text text-transparent;
+    @apply bg-gradient-to-br from-gold-300 via-gold-500 to-gold-600 bg-clip-text text-transparent;
+  }
+  
+  .metallic-gold {
+    background: linear-gradient(
+      145deg, 
+      #ffd700 0%,
+      #f6c858 25%,
+      #fcbd1f 50%,
+      #f6c858 75%,
+      #ffd700 100%
+    );
+    background-size: 200% 200%;
+    animation: shine 3s linear infinite;
+  }
+  
+  @keyframes shine {
+    to {
+      background-position: 200% center;
+    }
   }
   
   .glass-card {
-    @apply bg-white/10 backdrop-blur-lg border border-white/20 shadow-xl;
-  }
-  
-  .dark .glass-card {
-    @apply bg-black/20 backdrop-blur-lg border border-white/10 shadow-xl;
+    @apply bg-black/40 backdrop-blur-lg border border-white/10 shadow-xl;
   }
   
   .animate-on-scroll {

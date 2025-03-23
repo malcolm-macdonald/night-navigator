@@ -67,25 +67,20 @@
 
 /* Glass effect */
 .glass-effect {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.dark .glass-effect {
-  background: rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-/* For gold gradient text */
+/* For metallic gold gradient text */
 .gold-gradient {
   background: linear-gradient(
-    135deg,
+    145deg,
     #ffd700 0%,
-    #f5cc7d 25%,
-    #ffd700 50%,
-    #f5cc7d 75%,
+    #f6c858 25%,
+    #fcbd1f 50%,
+    #f6c858 75%,
     #ffd700 100%
   );
   -webkit-background-clip: text;
