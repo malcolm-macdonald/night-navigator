@@ -7,6 +7,7 @@ import { HowItWorks } from '@/components/HowItWorks';
 import { PricingSection } from '@/components/PricingSection';
 import { BookingInterface } from '@/components/BookingInterface';
 import { Footer } from '@/components/Footer';
+import { SpotlightDemo } from '@/components/SpotlightDemo';
 
 const Index = () => {
   useEffect(() => {
@@ -37,6 +38,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
+      <SpotlightDemo />
       <Hero />
       <FeaturesSection />
       <HowItWorks />
