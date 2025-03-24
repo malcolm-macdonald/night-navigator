@@ -16,9 +16,9 @@ type SpotlightProps = {
 };
 
 export const Spotlight = ({
-  gradientFirst = "radial-gradient(68.54% 68.72% at 55.02% 31.46%, hsla(40, 100%, 55%, .25) 0, hsla(40, 100%, 55%, .15) 50%, hsla(40, 100%, 45%, .05) 80%)",
-  gradientSecond = "radial-gradient(50% 50% at 50% 50%, hsla(40, 100%, 55%, .20) 0, hsla(40, 100%, 55%, .10) 80%, transparent 100%)",
-  gradientThird = "radial-gradient(50% 50% at 50% 50%, hsla(40, 100%, 55%, .15) 0, hsla(40, 100%, 45%, .10) 80%, transparent 100%)",
+  gradientFirst = "radial-gradient(68.54% 68.72% at 55.02% 31.46%, hsla(40, 100%, 55%, .25) 0%, hsla(40, 100%, 55%, .15) 50%, hsla(40, 100%, 45%, 0) 100%)",
+  gradientSecond = "radial-gradient(50% 50% at 50% 50%, hsla(40, 100%, 55%, .20) 0%, hsla(40, 100%, 55%, .10) 70%, transparent 100%)",
+  gradientThird = "radial-gradient(50% 50% at 50% 50%, hsla(40, 100%, 55%, .15) 0%, hsla(40, 100%, 45%, .10) 70%, transparent 100%)",
   translateY = -350,
   width = 700,
   height = 1380,
@@ -59,7 +59,7 @@ export const Spotlight = ({
             height: `${height}px`,
             borderRadius: '50%',
           }}
-          className={`absolute top-0 left-0`}
+          className="absolute top-0 left-0 opacity-80"
         />
 
         <div
@@ -70,7 +70,7 @@ export const Spotlight = ({
             height: `${height}px`,
             borderRadius: '50%',
           }}
-          className={`absolute top-0 left-0 origin-top-left`}
+          className="absolute top-0 left-0 origin-top-left opacity-80"
         />
 
         <div
@@ -81,7 +81,7 @@ export const Spotlight = ({
             height: `${height}px`,
             borderRadius: '50%',
           }}
-          className={`absolute top-0 left-0 origin-top-left`}
+          className="absolute top-0 left-0 origin-top-left opacity-80"
         />
       </motion.div>
 
@@ -105,7 +105,7 @@ export const Spotlight = ({
             height: `${height}px`,
             borderRadius: '50%',
           }}
-          className={`absolute top-0 right-0`}
+          className="absolute top-0 right-0 opacity-80"
         />
 
         <div
@@ -116,7 +116,7 @@ export const Spotlight = ({
             height: `${height}px`,
             borderRadius: '50%',
           }}
-          className={`absolute top-0 right-0 origin-top-right`}
+          className="absolute top-0 right-0 origin-top-right opacity-80"
         />
 
         <div
@@ -127,7 +127,7 @@ export const Spotlight = ({
             height: `${height}px`,
             borderRadius: '50%',
           }}
-          className={`absolute top-0 right-0 origin-top-right`}
+          className="absolute top-0 right-0 origin-top-right opacity-80"
         />
       </motion.div>
     </motion.div>
