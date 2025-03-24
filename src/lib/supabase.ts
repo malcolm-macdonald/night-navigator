@@ -1,5 +1,4 @@
-
-import { createClient } from '@supabase/supabase-js';
+import { createClient, SupabaseClient } from '@supabase/supabase-js';
 
 // Default empty values for development
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || '';
@@ -31,11 +30,24 @@ const createMockClient = () => {
         upload: () => Promise.resolve({ data: null, error: null }),
         getPublicUrl: () => ({ data: { publicUrl: '' } }),
       })
-    }
-  };
+    },
+    supabaseUrl: '',
+    supabaseKey: '',
+    realtime: {
+      channel: () => ({
+        on: () => ({}),
+        subscribe: () => Promise.resolve({}),
+      }),
+    },
+    realtimeUrl: '',
+    rest: {},
+    removeAllChannels: () => {},
+    removeChannel: () => {},
+    getChannels: () => [],
+  } as unknown as SupabaseClient;
 };
 
 // Create and export the Supabase client (real or mock)
 export const supabase = supabaseUrl && supabaseAnonKey 
   ? createClient(supabaseUrl, supabaseAnonKey)
-  : createMockClient() as ReturnType<typeof createClient>;
+  : createMockClient();
