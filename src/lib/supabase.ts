@@ -32,6 +32,7 @@ const createMockClient = () => {
         getPublicUrl: () => ({ data: { publicUrl: '' } }),
       })
     },
+    // Add missing properties required by SupabaseClient type
     supabaseUrl: '',
     supabaseKey: '',
     realtime: {

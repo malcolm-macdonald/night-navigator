@@ -22,7 +22,7 @@ const App = () => {
           <Sonner />
           {isMissingSupabaseCredentials && (
             <div className="fixed top-0 left-0 w-full bg-amber-600 text-white p-2 text-center z-50">
-              ⚠️ Supabase credentials missing. Please set the VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY environment variables.
+              ⚠️ Supabase configuration: Add VITE_SUPABASE_URL=https://hsvyldblgrqcgqlsgxsm.supabase.co and VITE_SUPABASE_ANON_KEY in your .env.local file
             </div>
           )}
           <BrowserRouter>

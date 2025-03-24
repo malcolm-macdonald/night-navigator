@@ -2,6 +2,8 @@
 "use client";
 import React from "react";
 import { Spotlight, GridBackground } from "@/components/ui/spotlight";
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
 
 export function SpotlightDemo() {
   return (
@@ -12,17 +14,35 @@ export function SpotlightDemo() {
         gradientFirst="radial-gradient(68.54% 68.72% at 55.02% 31.46%, hsla(40, 100%, 55%, .15) 0, hsla(40, 100%, 55%, .08) 50%, hsla(40, 100%, 45%, .03) 80%)"
         gradientSecond="radial-gradient(50% 50% at 50% 50%, hsla(40, 100%, 55%, .10) 0, hsla(40, 100%, 55%, .05) 80%, transparent 100%)"
         gradientThird="radial-gradient(50% 50% at 50% 50%, hsla(40, 100%, 55%, .08) 0, hsla(40, 100%, 45%, .05) 80%, transparent 100%)"
-        // Reducing overall size for less visual dominance
-        width={600}
-        smallWidth={250}
+        // Further reducing overall size
+        width={500}
+        smallWidth={200}
+        // Reduce height as well
+        height={1000}
       />
       <div className="p-4 max-w-7xl mx-auto relative z-10 w-full pt-20 md:pt-0">
-        <h1 className="text-4xl md:text-7xl font-bold text-center gold-gradient">
-          Perfect Plan
+        <div className="inline-flex items-center rounded-full bg-gold-50 dark:bg-gold-900/20 px-3 py-1 text-sm font-medium text-gold-900 dark:text-gold-300 mb-6 animate-fade-in">
+          <span className="flex h-2 w-2 rounded-full bg-gold-500 mr-2"></span>
+          Introducing Perfect Plan
+        </div>
+        
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 animate-fade-up">
+          Your Night, <span className="text-gold-gradient">Perfected</span>
         </h1>
-        <p className="mt-4 font-normal text-base text-neutral-300 max-w-lg text-center mx-auto">
-          Your ultimate night planner - automatically booking restaurants, scheduling rides, and curating unforgettable experiences.
+        
+        <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-10 animate-fade-up">
+          Effortlessly plan your perfect night out with AI-powered recommendations,
+          automated reservations, and seamless transportation — all in one elegant platform.
         </p>
+        
+        <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-up">
+          <Button size="lg" className="bg-gold-500 hover:bg-gold-600 text-black">
+            Start Planning <ArrowRight className="ml-2 h-4 w-4" />
+          </Button>
+          <Button size="lg" variant="outline" className="border-gold-500 text-gold-500 hover:bg-gold-50 dark:hover:bg-gold-950">
+            View Demo
+          </Button>
+        </div>
       </div>
     </div>
   );
