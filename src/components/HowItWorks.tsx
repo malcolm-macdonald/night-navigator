@@ -76,15 +76,15 @@ export const HowItWorks = () => {
         <div className="relative">
           <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gradient-to-b from-gold-400 to-gold-500/30 hidden md:block"></div>
 
-          <div className="space-y-20 md:space-y-0">
+          <div className="space-y-32 md:space-y-32">
             <div className="md:grid md:grid-cols-2 md:gap-8 items-center">
               <div 
                 ref={(el) => (itemRefs.current[0] = el)}
                 className="transition-all duration-700 ease-out opacity-0 translate-y-8 md:text-right"
               >
                 <div className="md:pr-12">
-                  <div className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-gold-100 dark:bg-gold-900/30 mb-4">
-                    <Calendar className="h-5 w-5 text-gold-600 dark:text-gold-400" />
+                  <div className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-gold-100 dark:bg-gold-900/30 mb-4">
+                    <Calendar className="h-8 w-8 text-gold-600 dark:text-gold-400" />
                   </div>
                   <h3 className="text-2xl font-semibold mb-3">Share Your Preferences</h3>
                   <p className="text-muted-foreground">
@@ -92,20 +92,24 @@ export const HowItWorks = () => {
                   </p>
                 </div>
               </div>
-              <div className="hidden md:flex justify-center">
-                <div className="relative flex h-12 w-12 items-center justify-center rounded-full border border-gold-600 bg-background shadow-md">
-                  <div className="absolute flex h-8 w-8 items-center justify-center rounded-full bg-gold-500 text-background">
-                    <span className="text-sm font-bold">1</span>
+              <div className="hidden md:flex justify-center relative">
+                <div className="absolute left-1/2 transform -translate-x-1/2">
+                  <div className="relative flex h-12 w-12 items-center justify-center rounded-full border border-gold-600 bg-background shadow-md">
+                    <div className="absolute flex h-8 w-8 items-center justify-center rounded-full bg-gold-500 text-background">
+                      <span className="text-sm font-bold">1</span>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="md:grid md:grid-cols-2 md:gap-8 items-center">
-              <div className="hidden md:flex justify-center">
-                <div className="relative flex h-12 w-12 items-center justify-center rounded-full border border-gold-600 bg-background shadow-md">
-                  <div className="absolute flex h-8 w-8 items-center justify-center rounded-full bg-gold-500 text-background">
-                    <span className="text-sm font-bold">2</span>
+            <div className="md:grid md:grid-cols-2 md:gap-8 items-center mt-24">
+              <div className="hidden md:flex justify-center relative">
+                <div className="absolute left-1/2 transform -translate-x-1/2">
+                  <div className="relative flex h-12 w-12 items-center justify-center rounded-full border border-gold-600 bg-background shadow-md">
+                    <div className="absolute flex h-8 w-8 items-center justify-center rounded-full bg-gold-500 text-background">
+                      <span className="text-sm font-bold">2</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -114,25 +118,25 @@ export const HowItWorks = () => {
                 className="transition-all duration-700 ease-out opacity-0 translate-y-8 md:delay-300"
               >
                 <div className="md:pl-12">
-                  <div className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-gold-100 dark:bg-gold-900/30 mb-4">
-                    <Settings className="h-5 w-5 text-gold-600 dark:text-gold-400" />
+                  <div className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-gold-100 dark:bg-gold-900/30 mb-4">
+                    <Settings className="h-8 w-8 text-gold-600 dark:text-gold-400" />
                   </div>
-                  <h3 className="text-2xl font-semibold mb-3">AI Creates Your Plan</h3>
+                  <h3 className="text-2xl font-semibold mb-3">We Create Your Plan</h3>
                   <p className="text-muted-foreground">
-                    Our AI analyzes your preferences, checks availability, and crafts a perfectly timed evening itinerary.
+                    Our system analyzes your preferences, checks availability, and crafts a perfectly timed evening itinerary.
                   </p>
                 </div>
               </div>
             </div>
 
-            <div className="md:grid md:grid-cols-2 md:gap-8 items-center">
+            <div className="md:grid md:grid-cols-2 md:gap-8 items-center mt-24">
               <div 
                 ref={(el) => (itemRefs.current[2] = el)}
                 className="transition-all duration-700 ease-out opacity-0 translate-y-8 md:text-right md:delay-600"
               >
                 <div className="md:pr-12">
-                  <div className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-gold-100 dark:bg-gold-900/30 mb-4">
-                    <Compass className="h-5 w-5 text-gold-600 dark:text-gold-400" />
+                  <div className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-gold-100 dark:bg-gold-900/30 mb-4">
+                    <Compass className="h-8 w-8 text-gold-600 dark:text-gold-400" />
                   </div>
                   <h3 className="text-2xl font-semibold mb-3">Review and Customize</h3>
                   <p className="text-muted-foreground">
@@ -140,20 +144,24 @@ export const HowItWorks = () => {
                   </p>
                 </div>
               </div>
-              <div className="hidden md:flex justify-center">
-                <div className="relative flex h-12 w-12 items-center justify-center rounded-full border border-gold-600 bg-background shadow-md">
-                  <div className="absolute flex h-8 w-8 items-center justify-center rounded-full bg-gold-500 text-background">
-                    <span className="text-sm font-bold">3</span>
+              <div className="hidden md:flex justify-center relative">
+                <div className="absolute left-1/2 transform -translate-x-1/2">
+                  <div className="relative flex h-12 w-12 items-center justify-center rounded-full border border-gold-600 bg-background shadow-md">
+                    <div className="absolute flex h-8 w-8 items-center justify-center rounded-full bg-gold-500 text-background">
+                      <span className="text-sm font-bold">3</span>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="md:grid md:grid-cols-2 md:gap-8 items-center">
-              <div className="hidden md:flex justify-center">
-                <div className="relative flex h-12 w-12 items-center justify-center rounded-full border border-gold-600 bg-background shadow-md">
-                  <div className="absolute flex h-8 w-8 items-center justify-center rounded-full bg-gold-500 text-background">
-                    <span className="text-sm font-bold">4</span>
+            <div className="md:grid md:grid-cols-2 md:gap-8 items-center mt-24">
+              <div className="hidden md:flex justify-center relative">
+                <div className="absolute left-1/2 transform -translate-x-1/2">
+                  <div className="relative flex h-12 w-12 items-center justify-center rounded-full border border-gold-600 bg-background shadow-md">
+                    <div className="absolute flex h-8 w-8 items-center justify-center rounded-full bg-gold-500 text-background">
+                      <span className="text-sm font-bold">4</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -162,8 +170,8 @@ export const HowItWorks = () => {
                 className="transition-all duration-700 ease-out opacity-0 translate-y-8 md:delay-900"
               >
                 <div className="md:pl-12">
-                  <div className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-gold-100 dark:bg-gold-900/30 mb-4">
-                    <Check className="h-5 w-5 text-gold-600 dark:text-gold-400" />
+                  <div className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-gold-100 dark:bg-gold-900/30 mb-4">
+                    <Check className="h-8 w-8 text-gold-600 dark:text-gold-400" />
                   </div>
                   <h3 className="text-2xl font-semibold mb-3">Confirm and Enjoy</h3>
                   <p className="text-muted-foreground">

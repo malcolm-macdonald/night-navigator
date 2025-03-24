@@ -31,7 +31,7 @@ export function SpotlightDemo() {
         </h1>
         
         <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-10 animate-fade-up">
-          Effortlessly plan your perfect night out with AI-powered recommendations,
+          Effortlessly plan your perfect night out with personalized recommendations,
           automated reservations, and seamless transportation — all in one elegant platform.
         </p>
         

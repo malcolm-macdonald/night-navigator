@@ -44,8 +44,8 @@ const FeatureCard = ({ icon, title, description, delay = 0 }: FeatureCardProps) 
       ref={cardRef}
       className="bg-card rounded-xl p-6 transition-all duration-700 ease-out opacity-0 translate-y-8 hover:shadow-lg hover:-translate-y-1 border border-border"
     >
-      <div className="bg-gold-100 dark:bg-gold-900/20 p-3 rounded-lg inline-block mb-4">
-        <div className="text-gold-500">{icon}</div>
+      <div className="bg-gold-600 dark:bg-gold-600 p-3 rounded-lg inline-block mb-4">
+        <div className="text-black">{icon}</div>
       </div>
       <h3 className="text-xl font-semibold mb-2">{title}</h3>
       <p className="text-muted-foreground">{description}</p>
@@ -126,7 +126,7 @@ export const FeaturesSection = () => {
           <FeatureCard 
             icon={<CalendarCheck className="h-6 w-6" />}
             title="Smart Scheduling"
-            description="AI optimizes your evening timeline to ensure seamless transitions between venues."
+            description="Optimized evening timeline to ensure seamless transitions between venues."
             delay={500}
           />
           <FeatureCard 
