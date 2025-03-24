@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -12,19 +11,12 @@ import "./App.css";
 const queryClient = new QueryClient();
 
 const App = () => {
-  const isMissingSupabaseCredentials = !import.meta.env.VITE_SUPABASE_URL || !import.meta.env.VITE_SUPABASE_ANON_KEY;
-
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <AuthProvider>
           <Toaster />
           <Sonner />
-          {isMissingSupabaseCredentials && (
-            <div className="fixed top-0 left-0 w-full bg-amber-600 text-white p-2 text-center z-50">
-              ⚠️ Supabase configuration: Add VITE_SUPABASE_URL=https://hsvyldblgrqcgqlsgxsm.supabase.co and VITE_SUPABASE_ANON_KEY in your .env.local file
-            </div>
-          )}
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<Index />} />
