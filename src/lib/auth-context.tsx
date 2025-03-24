@@ -11,6 +11,7 @@ import {
   Session,
 } from '@supabase/supabase-js';
 import { supabase } from './supabase';
+import { useToast } from "@/components/ui/use-toast";
 
 type AuthContextType = {
   user: User | null;
@@ -33,8 +34,22 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [session, setSession] = useState<Session | null>(null);
   const [loading, setLoading] = useState(true);
+  const { toast } = useToast();
 
   useEffect(() => {
+    // Check if Supabase is properly configured
+    const isMissingCredentials = !import.meta.env.VITE_SUPABASE_URL || !import.meta.env.VITE_SUPABASE_ANON_KEY;
+    
+    if (isMissingCredentials) {
+      toast({
+        title: "Supabase Not Configured",
+        description: "Supabase credentials are missing. Authentication features will not work.",
+        variant: "destructive",
+      });
+      setLoading(false);
+      return;
+    }
+
     // Get initial session
     supabase.auth.getSession().then(({ data: { session } }) => {
       setSession(session);
@@ -52,7 +67,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     return () => {
       subscription.unsubscribe();
     };
-  }, []);
+  }, [toast]);
 
   const signUp = async (email: string, password: string) => {
     try {
@@ -60,8 +75,22 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         email,
         password,
       });
+      
+      if (error) {
+        toast({
+          title: "Sign Up Failed",
+          description: error.message,
+          variant: "destructive",
+        });
+      }
+      
       return { data, error };
     } catch (error) {
+      toast({
+        title: "Sign Up Failed",
+        description: "An unexpected error occurred",
+        variant: "destructive",
+      });
       return { data: null, error };
     }
   };
@@ -72,8 +101,22 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         email,
         password,
       });
+      
+      if (error) {
+        toast({
+          title: "Sign In Failed",
+          description: error.message,
+          variant: "destructive",
+        });
+      }
+      
       return { data, error };
     } catch (error) {
+      toast({
+        title: "Sign In Failed",
+        description: "An unexpected error occurred",
+        variant: "destructive",
+      });
       return { data: null, error };
     }
   };
