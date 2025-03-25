@@ -9,13 +9,9 @@ export function SpotlightDemo() {
   return (
     <div className="h-[40rem] w-full rounded-md flex md:items-center md:justify-center bg-black/[0.96] antialiased bg-grid-white/[0.02] relative overflow-hidden">
       <GridBackground />
-      <Spotlight 
-        gradientFirst="radial-gradient(68.54% 68.72% at 55.02% 31.46%, hsla(40, 100%, 55%, .15) 0%, hsla(40, 100%, 55%, .08) 50%, hsla(40, 100%, 45%, 0) 100%)"
-        gradientSecond="radial-gradient(50% 50% at 50% 50%, hsla(40, 100%, 55%, .10) 0%, hsla(40, 100%, 55%, .05) 60%, transparent 100%)"
-        gradientThird="radial-gradient(50% 50% at 50% 50%, hsla(40, 100%, 55%, .08) 0%, hsla(40, 100%, 45%, .05) 60%, transparent 100%)"
-        width={600}
-        smallWidth={300}
-        height={900}
+      <Spotlight
+        className="-top-40 left-0 md:left-60 md:-top-20"
+        fill="#FFC233"
       />
       <div className="p-4 max-w-7xl mx-auto relative z-10 w-full pt-20 md:pt-0 text-center">
         <div className="inline-flex items-center rounded-full bg-gold-50 dark:bg-gold-900/20 px-3 py-1 text-sm font-medium text-gold-900 dark:text-gold-300 mb-6 animate-fade-in">
