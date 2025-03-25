@@ -37,6 +37,9 @@ export function NavBar({ items, className }: NavBarProps) {
     const handleScroll = () => {
       const sections = items.map(item => {
         const id = item.url.replace("#", "");
+        // Special case for 'home' route
+        if (id === "" || id === "/") return { name: item.name, position: 0 };
+        
         const element = document.getElementById(id);
         if (!element) return { name: item.name, position: 0 };
         
@@ -66,6 +69,12 @@ export function NavBar({ items, className }: NavBarProps) {
 
   const handleNavClick = (name: string, url: string) => {
     setActiveTab(name);
+    
+    // Special case for Home - scroll to top
+    if (url === '/' || url === '#') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
     
     // Smooth scroll to section
     if (url.startsWith('#')) {

@@ -13,8 +13,8 @@ export function SpotlightDemo() {
         gradientFirst="radial-gradient(68.54% 68.72% at 55.02% 31.46%, hsla(40, 100%, 55%, .15) 0%, hsla(40, 100%, 55%, .08) 50%, hsla(40, 100%, 45%, 0) 100%)"
         gradientSecond="radial-gradient(50% 50% at 50% 50%, hsla(40, 100%, 55%, .10) 0%, hsla(40, 100%, 55%, .05) 60%, transparent 100%)"
         gradientThird="radial-gradient(50% 50% at 50% 50%, hsla(40, 100%, 55%, .08) 0%, hsla(40, 100%, 45%, .05) 60%, transparent 100%)"
-        width={450}
-        smallWidth={200}
+        width={600}
+        smallWidth={300}
         height={900}
       />
       <div className="p-4 max-w-7xl mx-auto relative z-10 w-full pt-20 md:pt-0 text-center">
@@ -24,7 +24,7 @@ export function SpotlightDemo() {
         </div>
         
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 animate-fade-up mx-auto">
-          Your Night, <span className="font-playfair text-gold-gradient">Perfected</span>
+          Your Night, <span className="font-playfair italic text-gold-gradient">Perfected</span>
         </h1>
         
         <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-10 animate-fade-up">
