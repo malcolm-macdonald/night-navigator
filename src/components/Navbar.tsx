@@ -12,6 +12,13 @@ export const Navbar = () => {
   ];
 
   return (
-    <NavBar items={navItems} className="sm:pt-6" />
+    <div className="relative w-full">
+      <div className="absolute top-6 left-8 z-50">
+        <a href="/" className="text-xl font-bold tracking-tight text-gold-gradient font-playfair">
+          Perfect Plan
+        </a>
+      </div>
+      <NavBar items={navItems} className="sm:pt-6" />
+    </div>
   );
 };

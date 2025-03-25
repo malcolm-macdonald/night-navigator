@@ -57,7 +57,8 @@ export const Spotlight = ({
             background: gradientFirst,
             width: `${width}px`,
             height: `${height}px`,
-            borderRadius: '50%',
+            borderRadius: '100%',
+            filter: 'blur(20px)',
           }}
           className="absolute top-0 left-0 opacity-80"
         />
@@ -68,7 +69,8 @@ export const Spotlight = ({
             background: gradientSecond,
             width: `${smallWidth}px`,
             height: `${height}px`,
-            borderRadius: '50%',
+            borderRadius: '100%',
+            filter: 'blur(15px)',
           }}
           className="absolute top-0 left-0 origin-top-left opacity-80"
         />
@@ -79,7 +81,8 @@ export const Spotlight = ({
             background: gradientThird,
             width: `${smallWidth}px`,
             height: `${height}px`,
-            borderRadius: '50%',
+            borderRadius: '100%',
+            filter: 'blur(15px)',
           }}
           className="absolute top-0 left-0 origin-top-left opacity-80"
         />
@@ -103,7 +106,8 @@ export const Spotlight = ({
             background: gradientFirst,
             width: `${width}px`,
             height: `${height}px`,
-            borderRadius: '50%',
+            borderRadius: '100%',
+            filter: 'blur(20px)',
           }}
           className="absolute top-0 right-0 opacity-80"
         />
@@ -114,7 +118,8 @@ export const Spotlight = ({
             background: gradientSecond,
             width: `${smallWidth}px`,
             height: `${height}px`,
-            borderRadius: '50%',
+            borderRadius: '100%',
+            filter: 'blur(15px)',
           }}
           className="absolute top-0 right-0 origin-top-right opacity-80"
         />
@@ -125,7 +130,8 @@ export const Spotlight = ({
             background: gradientThird,
             width: `${smallWidth}px`,
             height: `${height}px`,
-            borderRadius: '50%',
+            borderRadius: '100%',
+            filter: 'blur(15px)',
           }}
           className="absolute top-0 right-0 origin-top-right opacity-80"
         />

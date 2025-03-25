@@ -1,3 +1,4 @@
+
 "use client";
 import React from "react";
 import { Spotlight, GridBackground } from "@/components/ui/spotlight";
@@ -23,7 +24,7 @@ export function SpotlightDemo() {
         </div>
         
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 animate-fade-up mx-auto">
-          Your Night, <span className="text-gold-gradient">Perfected</span>
+          Your Night, <span className="font-playfair text-gold-gradient">Perfected</span>
         </h1>
         
         <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-10 animate-fade-up">

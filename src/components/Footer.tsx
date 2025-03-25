@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { cn } from '@/lib/utils';
 
@@ -10,7 +9,7 @@ export const Footer = () => {
           <div className="md:col-span-2">
             <a 
               href="/" 
-              className="text-2xl font-bold tracking-tight text-gold-gradient mb-4 inline-block"
+              className="text-2xl font-bold tracking-tight font-playfair text-gold-gradient mb-4 inline-block"
             >
               Perfect Plan
             </a>

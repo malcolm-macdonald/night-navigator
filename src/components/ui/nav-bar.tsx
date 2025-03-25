@@ -33,6 +33,50 @@ export function NavBar({ items, className }: NavBarProps) {
     return () => window.removeEventListener("resize", handleResize)
   }, [])
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = items.map(item => {
+        const id = item.url.replace("#", "");
+        const element = document.getElementById(id);
+        if (!element) return { name: item.name, position: 0 };
+        
+        const rect = element.getBoundingClientRect();
+        return {
+          name: item.name,
+          position: rect.top
+        };
+      });
+
+      // Find the section closest to the top of viewport
+      const activeSection = sections.reduce((prev, curr) => {
+        if (curr.position <= 100 && curr.position > -200) {
+          return curr;
+        }
+        return prev;
+      }, sections[0]);
+
+      if (activeSection) {
+        setActiveTab(activeSection.name);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [items]);
+
+  const handleNavClick = (name: string, url: string) => {
+    setActiveTab(name);
+    
+    // Smooth scroll to section
+    if (url.startsWith('#')) {
+      const id = url.substring(1);
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
+
   return (
     <div
       className={cn(
@@ -50,20 +94,23 @@ export function NavBar({ items, className }: NavBarProps) {
             <Link
               key={item.name}
               to={item.url}
-              onClick={() => setActiveTab(item.name)}
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavClick(item.name, item.url);
+              }}
               onMouseEnter={() => setHoveredTab(item.name)}
               onMouseLeave={() => setHoveredTab(null)}
               className={cn(
                 "relative cursor-pointer text-sm font-semibold px-6 py-2 rounded-full transition-colors",
-                "text-foreground/80 hover:text-primary",
-                isActive && "bg-muted text-primary",
+                "text-foreground/80 hover:text-white",
+                isActive && "bg-muted text-white",
               )}
             >
               <span className="hidden md:inline">{item.name}</span>
               <span className="md:hidden">
                 <Icon size={18} strokeWidth={2.5} />
               </span>
-              {isActive && (
+              {isActive && !isHovered && (
                 <motion.div
                   layoutId="lamp"
                   className="absolute inset-0 w-full bg-primary/5 rounded-full -z-10"
@@ -82,7 +129,7 @@ export function NavBar({ items, className }: NavBarProps) {
                 </motion.div>
               )}
               
-              {isHovered && !isActive && (
+              {isHovered && (
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
