@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from 'react';
 import { Calendar, Settings, Compass, Check } from 'lucide-react';
 
@@ -74,17 +73,24 @@ export const HowItWorks = () => {
         </div>
 
         <div className="relative">
-          <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gradient-to-b from-gold-400 to-gold-500/30 hidden md:block"></div>
+          <div className="absolute left-1/3 transform -translate-x-1/2 h-full w-0.5 bg-gradient-to-b from-gold-400 to-gold-500/30 hidden md:block"></div>
 
           <div className="space-y-32 md:space-y-32">
-            <div className="md:grid md:grid-cols-2 md:gap-8 items-center">
+            <div className="md:grid md:grid-cols-12 md:gap-8 items-center">
+              <div className="col-span-4 hidden md:flex justify-end relative">
+                <div className="relative flex h-12 w-12 items-center justify-center rounded-full border border-gold-600 bg-background shadow-md">
+                  <div className="absolute flex h-8 w-8 items-center justify-center rounded-full bg-gold-500 text-background">
+                    <span className="text-sm font-bold">1</span>
+                  </div>
+                </div>
+              </div>
               <div 
                 ref={(el) => (itemRefs.current[0] = el)}
-                className="transition-all duration-700 ease-out opacity-0 translate-y-8 md:text-right"
+                className="col-span-8 transition-all duration-700 ease-out opacity-0 translate-y-8"
               >
-                <div className="md:pr-12">
-                  <div className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-gold-100 dark:bg-gold-900/30 mb-4">
-                    <Calendar className="h-8 w-8 text-gold-600 dark:text-gold-400" />
+                <div className="md:pl-8">
+                  <div className="bg-gold-600 dark:bg-gold-600 p-3 rounded-lg inline-block mb-4">
+                    <Calendar className="h-6 w-6 text-black" />
                   </div>
                   <h3 className="text-2xl font-semibold mb-3">Share Your Preferences</h3>
                   <p className="text-muted-foreground">
@@ -92,51 +98,47 @@ export const HowItWorks = () => {
                   </p>
                 </div>
               </div>
-              <div className="hidden md:flex justify-center relative">
-                <div className="absolute left-1/2 transform -translate-x-1/2">
-                  <div className="relative flex h-12 w-12 items-center justify-center rounded-full border border-gold-600 bg-background shadow-md">
-                    <div className="absolute flex h-8 w-8 items-center justify-center rounded-full bg-gold-500 text-background">
-                      <span className="text-sm font-bold">1</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
 
-            <div className="md:grid md:grid-cols-2 md:gap-8 items-center mt-24">
-              <div className="hidden md:flex justify-center relative">
-                <div className="absolute left-1/2 transform -translate-x-1/2">
-                  <div className="relative flex h-12 w-12 items-center justify-center rounded-full border border-gold-600 bg-background shadow-md">
-                    <div className="absolute flex h-8 w-8 items-center justify-center rounded-full bg-gold-500 text-background">
-                      <span className="text-sm font-bold">2</span>
-                    </div>
+            <div className="md:grid md:grid-cols-12 md:gap-8 items-center mt-24">
+              <div className="col-span-4 hidden md:flex justify-end relative">
+                <div className="relative flex h-12 w-12 items-center justify-center rounded-full border border-gold-600 bg-background shadow-md">
+                  <div className="absolute flex h-8 w-8 items-center justify-center rounded-full bg-gold-500 text-background">
+                    <span className="text-sm font-bold">2</span>
                   </div>
                 </div>
               </div>
               <div 
                 ref={(el) => (itemRefs.current[1] = el)}
-                className="transition-all duration-700 ease-out opacity-0 translate-y-8 md:delay-300"
+                className="col-span-8 transition-all duration-700 ease-out opacity-0 translate-y-8 md:delay-300"
               >
-                <div className="md:pl-12">
-                  <div className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-gold-100 dark:bg-gold-900/30 mb-4">
-                    <Settings className="h-8 w-8 text-gold-600 dark:text-gold-400" />
+                <div className="md:pl-8">
+                  <div className="bg-gold-600 dark:bg-gold-600 p-3 rounded-lg inline-block mb-4">
+                    <Settings className="h-6 w-6 text-black" />
                   </div>
-                  <h3 className="text-2xl font-semibold mb-3">We Create Your Plan</h3>
+                  <h3 className="text-2xl font-semibold mb-3">Create Your Perfect Plan</h3>
                   <p className="text-muted-foreground">
-                    Our system analyzes your preferences, checks availability, and crafts a perfectly timed evening itinerary.
+                    Design your own custom experience or choose from custom curated suggestions tailored to your preferences and availability.
                   </p>
                 </div>
               </div>
             </div>
 
-            <div className="md:grid md:grid-cols-2 md:gap-8 items-center mt-24">
+            <div className="md:grid md:grid-cols-12 md:gap-8 items-center mt-24">
+              <div className="col-span-4 hidden md:flex justify-end relative">
+                <div className="relative flex h-12 w-12 items-center justify-center rounded-full border border-gold-600 bg-background shadow-md">
+                  <div className="absolute flex h-8 w-8 items-center justify-center rounded-full bg-gold-500 text-background">
+                    <span className="text-sm font-bold">3</span>
+                  </div>
+                </div>
+              </div>
               <div 
                 ref={(el) => (itemRefs.current[2] = el)}
-                className="transition-all duration-700 ease-out opacity-0 translate-y-8 md:text-right md:delay-600"
+                className="col-span-8 transition-all duration-700 ease-out opacity-0 translate-y-8 md:delay-600"
               >
-                <div className="md:pr-12">
-                  <div className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-gold-100 dark:bg-gold-900/30 mb-4">
-                    <Compass className="h-8 w-8 text-gold-600 dark:text-gold-400" />
+                <div className="md:pl-8">
+                  <div className="bg-gold-600 dark:bg-gold-600 p-3 rounded-lg inline-block mb-4">
+                    <Compass className="h-6 w-6 text-black" />
                   </div>
                   <h3 className="text-2xl font-semibold mb-3">Review and Customize</h3>
                   <p className="text-muted-foreground">
@@ -144,34 +146,23 @@ export const HowItWorks = () => {
                   </p>
                 </div>
               </div>
-              <div className="hidden md:flex justify-center relative">
-                <div className="absolute left-1/2 transform -translate-x-1/2">
-                  <div className="relative flex h-12 w-12 items-center justify-center rounded-full border border-gold-600 bg-background shadow-md">
-                    <div className="absolute flex h-8 w-8 items-center justify-center rounded-full bg-gold-500 text-background">
-                      <span className="text-sm font-bold">3</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
 
-            <div className="md:grid md:grid-cols-2 md:gap-8 items-center mt-24">
-              <div className="hidden md:flex justify-center relative">
-                <div className="absolute left-1/2 transform -translate-x-1/2">
-                  <div className="relative flex h-12 w-12 items-center justify-center rounded-full border border-gold-600 bg-background shadow-md">
-                    <div className="absolute flex h-8 w-8 items-center justify-center rounded-full bg-gold-500 text-background">
-                      <span className="text-sm font-bold">4</span>
-                    </div>
+            <div className="md:grid md:grid-cols-12 md:gap-8 items-center mt-24">
+              <div className="col-span-4 hidden md:flex justify-end relative">
+                <div className="relative flex h-12 w-12 items-center justify-center rounded-full border border-gold-600 bg-background shadow-md">
+                  <div className="absolute flex h-8 w-8 items-center justify-center rounded-full bg-gold-500 text-background">
+                    <span className="text-sm font-bold">4</span>
                   </div>
                 </div>
               </div>
               <div 
                 ref={(el) => (itemRefs.current[3] = el)}
-                className="transition-all duration-700 ease-out opacity-0 translate-y-8 md:delay-900"
+                className="col-span-8 transition-all duration-700 ease-out opacity-0 translate-y-8 md:delay-900"
               >
-                <div className="md:pl-12">
-                  <div className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-gold-100 dark:bg-gold-900/30 mb-4">
-                    <Check className="h-8 w-8 text-gold-600 dark:text-gold-400" />
+                <div className="md:pl-8">
+                  <div className="bg-gold-600 dark:bg-gold-600 p-3 rounded-lg inline-block mb-4">
+                    <Check className="h-6 w-6 text-black" />
                   </div>
                   <h3 className="text-2xl font-semibold mb-3">Confirm and Enjoy</h3>
                   <p className="text-muted-foreground">

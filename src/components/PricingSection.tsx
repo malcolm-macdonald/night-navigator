@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Check } from 'lucide-react';
@@ -131,50 +130,35 @@ export const PricingSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           <PricingPlan 
             name="Casual"
-            price="$9.99"
-            description="Ideal for occasional nights out, perfect for trying our service."
+            price="$0.01"
+            description="For those who want an absurdly priced basic experience."
             features={[
-              "3 planned evenings per month",
-              "Restaurant reservations",
-              "Basic Uber ride scheduling",
-              "Email support",
-              "Mobile app access"
+              "Access to placeholder features",
+              "Occasional availability of the app",
+              "Reservations at restaurants that may exist",
+              "We might answer your emails",
+              "The button might work"
             ]}
             delay={100}
           />
           <PricingPlan 
-            name="Regular"
-            price="$19.99"
-            description="Our most popular plan for those who enjoy regular nights out."
+            name="VIP"
+            price="$99,999"
+            description="Ridiculously overpriced with imaginary premium benefits."
             features={[
-              "8 planned evenings per month",
-              "Priority restaurant reservations",
-              "Premium Uber ride scheduling",
-              "Event ticket booking",
-              "24/7 concierge text support",
-              "Exclusive venue access"
+              "All the placeholder features you can imagine",
+              "Reservations at restaurants that don't exist yet",
+              "Rides in vehicles that may be cars",
+              "We'll pretend to know you when you call",
+              "Access to 'exclusive' imaginary venues",
+              "A digital badge that says you spent too much",
+              "The satisfaction of seeing this placeholder text"
             ]}
             popular={true}
             delay={200}
-          />
-          <PricingPlan 
-            name="VIP"
-            price="$39.99"
-            description="The ultimate nightlife experience with premium perks and benefits."
-            features={[
-              "Unlimited planned evenings",
-              "VIP restaurant reservations",
-              "Luxury transportation options",
-              "Premium event access",
-              "24/7 dedicated concierge",
-              "Exclusive venue access",
-              "Special perks and upgrades",
-              "Partner discounts"
-            ]}
-            delay={300}
           />
         </div>
       </div>

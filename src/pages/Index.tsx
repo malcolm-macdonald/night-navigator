@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { Navbar } from '@/components/Navbar';
 import { FeaturesSection } from '@/components/FeaturesSection';
@@ -40,10 +39,12 @@ const Index = () => {
       <section id="home">
         <SpotlightDemo />
       </section>
+      <section id="try-it-now">
+        <BookingInterface />
+      </section>
       <section id="features">
         <FeaturesSection />
       </section>
-      <BookingInterface />
       <section id="how-it-works">
         <HowItWorks />
       </section>
