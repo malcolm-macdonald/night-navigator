@@ -14,6 +14,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 
 interface FormData {
   date: Date | undefined;
@@ -627,7 +628,6 @@ export const BookingInterface = () => {
     }
   };
 
-  // Generate time options in 30-minute intervals
   const generateTimeOptions = () => {
     const times = [];
     for (let hour = 0; hour < 24; hour++) {
@@ -642,7 +642,6 @@ export const BookingInterface = () => {
   };
 
   const renderPlanResults = () => {
-    // Format date nicely
     const formattedDate = formData.date 
       ? format(formData.date, 'EEEE, MMMM d')
       : 'Date not selected';
@@ -708,7 +707,7 @@ export const BookingInterface = () => {
         
         <div className="flex justify-center mt-8">
           <Button 
-            className="bg-gold-500 hover:bg-gold-600 text-black"
+            className="bg-gold-500 hover:bg-gold-600 text-black w-full md:w-auto"
             onClick={() => setShowResults(false)}
           >
             Edit Plan
@@ -739,74 +738,70 @@ export const BookingInterface = () => {
         <div className="max-w-3xl mx-auto glass-card rounded-xl overflow-hidden shadow-xl">
           {!showResults ? (
             <div className="flex flex-col">
-              <nav className="grid grid-cols-5 border-b border-border">
-                {tabs.map((tab, index) => (
-                  <button
-                    key={index}
-                    type="button"
-                    role="tab"
-                    aria-selected={activeTab === index}
-                    onClick={() => setActiveTab(index)}
-                    className={cn(
-                      "flex flex-col items-center justify-center p-4 text-sm w-full cursor-pointer border-0 outline-none",
-                      "hover:bg-muted/50 transition-colors duration-200",
-                      "focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
-                      activeTab === index && "bg-background text-gold-500 border-b-2 border-gold-500"
-                    )}
-                  >
-                    {tab.icon}
-                    <span className="mt-1">{tab.label}</span>
-                  </button>
-                ))}
-              </nav>
-              <div className="p-6 md:p-8">
-                {formErrors.length > 0 && (
-                  <div className="bg-red-50 dark:bg-red-900/10 border border-red-200 dark:border-red-800 rounded-md p-4 mb-4">
-                    <div className="flex">
-                      <AlertCircle className="h-5 w-5 text-red-500 mr-2" />
-                      <div className="space-y-1">
-                        {formErrors.map((error, index) => (
-                          <p key={index} className="text-sm text-red-500">
-                            {error}
-                          </p>
-                        ))}
+              <Tabs defaultValue={activeTab.toString()} onValueChange={(value) => setActiveTab(parseInt(value))}>
+                <TabsList className="grid grid-cols-5 w-full">
+                  {tabs.map((tab, index) => (
+                    <TabsTrigger 
+                      key={index}
+                      value={index.toString()}
+                      className="flex flex-col items-center justify-center p-4 data-[state=active]:text-gold-500"
+                    >
+                      {tab.icon}
+                      <span className="mt-1">{tab.label}</span>
+                    </TabsTrigger>
+                  ))}
+                </TabsList>
+                <div className="p-6 md:p-8">
+                  {formErrors.length > 0 && (
+                    <div className="bg-red-50 dark:bg-red-900/10 border border-red-200 dark:border-red-800 rounded-md p-4 mb-4">
+                      <div className="flex">
+                        <AlertCircle className="h-5 w-5 text-red-500 mr-2" />
+                        <div className="space-y-1">
+                          {formErrors.map((error, index) => (
+                            <p key={index} className="text-sm text-red-500">
+                              {error}
+                            </p>
+                          ))}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                )}
-                
-                {getTabContent(activeTab)}
-                
-                <div className="mt-8 flex justify-between items-center w-full">
-                  <Button 
-                    variant="outline" 
-                    onClick={() => setActiveTab(Math.max(0, activeTab - 1))}
-                    disabled={activeTab === 0}
-                  >
-                    Previous
-                  </Button>
-                  
-                  {activeTab < tabs.length - 1 ? (
-                    <Button 
-                      variant="outline"
-                      onClick={() => setActiveTab(activeTab + 1)}
-                    >
-                      Next
-                    </Button>
-                  ) : (
-                    <Button 
-                      className="bg-gold-500 hover:bg-gold-600 text-black"
-                      onClick={() => {
-                        if (validateCurrentTab()) {
-                          setShowResults(true);
-                        }
-                      }}
-                    >
-                      Create Plan
-                    </Button>
                   )}
+                  
+                  {getTabContent(activeTab)}
+                  
+                  <div className="mt-8 flex justify-between items-center w-full">
+                    <Button 
+                      variant="outline" 
+                      onClick={() => setActiveTab(Math.max(0, activeTab - 1))}
+                      disabled={activeTab === 0}
+                      className="w-full md:w-auto"
+                    >
+                      Previous
+                    </Button>
+                    
+                    {activeTab < tabs.length - 1 ? (
+                      <Button 
+                        variant="outline"
+                        onClick={() => setActiveTab(activeTab + 1)}
+                        className="w-full md:w-auto"
+                      >
+                        Next
+                      </Button>
+                    ) : (
+                      <Button 
+                        className="bg-gold-500 hover:bg-gold-600 text-black w-full md:w-auto"
+                        onClick={() => {
+                          if (validateCurrentTab()) {
+                            setShowResults(true);
+                          }
+                        }}
+                      >
+                        Create Plan
+                      </Button>
+                    )}
+                  </div>
                 </div>
-              </div>
+              </Tabs>
             </div>
           ) : (
             renderPlanResults()
