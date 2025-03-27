@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -32,7 +33,7 @@ interface FormData {
 }
 
 export const BookingInterface = () => {
-  const [activeTab, setActiveTab] = useState<number>(0);
+  const [activeTab, setActiveTab] = useState<string>("0");
   const [showResults, setShowResults] = useState<boolean>(false);
   const [formData, setFormData] = useState<FormData>({
     date: undefined,
@@ -124,8 +125,10 @@ export const BookingInterface = () => {
     { icon: <MapPin className="h-5 w-5" />, label: "Location" },
   ];
 
-  const getTabContent = (tab: number) => {
-    switch (tab) {
+  const getTabContent = (tab: string) => {
+    const tabIndex = parseInt(tab);
+    
+    switch (tabIndex) {
       case 0:
         return (
           <div className="space-y-6">
@@ -150,7 +153,7 @@ export const BookingInterface = () => {
                     </div>
                   </Button>
                 </PopoverTrigger>
-                <PopoverContent className="w-auto p-0" align="start">
+                <PopoverContent className="w-auto p-0 z-50" align="start">
                   <CalendarComponent
                     mode="single"
                     selected={formData.date}
@@ -160,6 +163,7 @@ export const BookingInterface = () => {
                       date > oneMonthFromNow
                     }
                     initialFocus
+                    className="pointer-events-auto"
                   />
                 </PopoverContent>
               </Popover>
@@ -178,7 +182,7 @@ export const BookingInterface = () => {
                     <SelectValue placeholder="Select a time" className="flex-grow truncate" />
                   </div>
                 </SelectTrigger>
-                <SelectContent>
+                <SelectContent position="popper" className="z-50">
                   {generateTimeOptions().map((time) => (
                     <SelectItem key={time} value={time} className="cursor-pointer">
                       {time}
@@ -738,7 +742,11 @@ export const BookingInterface = () => {
         <div className="max-w-3xl mx-auto glass-card rounded-xl overflow-hidden shadow-xl">
           {!showResults ? (
             <div className="flex flex-col">
-              <Tabs defaultValue={activeTab.toString()} onValueChange={(value) => setActiveTab(parseInt(value))}>
+              <Tabs 
+                defaultValue={activeTab} 
+                onValueChange={(value) => setActiveTab(value)}
+                className="w-full"
+              >
                 <TabsList className="grid grid-cols-5 w-full">
                   {tabs.map((tab, index) => (
                     <TabsTrigger 
@@ -751,6 +759,7 @@ export const BookingInterface = () => {
                     </TabsTrigger>
                   ))}
                 </TabsList>
+                
                 <div className="p-6 md:p-8">
                   {formErrors.length > 0 && (
                     <div className="bg-red-50 dark:bg-red-900/10 border border-red-200 dark:border-red-800 rounded-md p-4 mb-4">
@@ -767,22 +776,44 @@ export const BookingInterface = () => {
                     </div>
                   )}
                   
-                  {getTabContent(activeTab)}
+                  <TabsContent value="0" className="mt-0 focus-visible:outline-none focus-visible:ring-0">
+                    {getTabContent("0")}
+                  </TabsContent>
+                  <TabsContent value="1" className="mt-0 focus-visible:outline-none focus-visible:ring-0">
+                    {getTabContent("1")}
+                  </TabsContent>
+                  <TabsContent value="2" className="mt-0 focus-visible:outline-none focus-visible:ring-0">
+                    {getTabContent("2")}
+                  </TabsContent>
+                  <TabsContent value="3" className="mt-0 focus-visible:outline-none focus-visible:ring-0">
+                    {getTabContent("3")}
+                  </TabsContent>
+                  <TabsContent value="4" className="mt-0 focus-visible:outline-none focus-visible:ring-0">
+                    {getTabContent("4")}
+                  </TabsContent>
                   
                   <div className="mt-8 flex justify-between items-center w-full">
                     <Button 
                       variant="outline" 
-                      onClick={() => setActiveTab(Math.max(0, activeTab - 1))}
-                      disabled={activeTab === 0}
+                      onClick={() => {
+                        const currentIndex = parseInt(activeTab);
+                        if (currentIndex > 0) {
+                          setActiveTab((currentIndex - 1).toString());
+                        }
+                      }}
+                      disabled={activeTab === "0"}
                       className="w-full md:w-auto"
                     >
                       Previous
                     </Button>
                     
-                    {activeTab < tabs.length - 1 ? (
+                    {parseInt(activeTab) < tabs.length - 1 ? (
                       <Button 
                         variant="outline"
-                        onClick={() => setActiveTab(activeTab + 1)}
+                        onClick={() => {
+                          const currentIndex = parseInt(activeTab);
+                          setActiveTab((currentIndex + 1).toString());
+                        }}
                         className="w-full md:w-auto"
                       >
                         Next
